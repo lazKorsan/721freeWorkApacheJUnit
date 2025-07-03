@@ -1,32 +1,11 @@
 package utilities;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.time.Duration;
-
 public class BulXpath {
-    public static void main(String[] args) {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("force-device-scale-factor=1.0");
-        options.addArguments("high-dpi-support=1.0");
-
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        driver.get("https://www.lcw.com/");
-
-        WebElement aramaKutusu = driver.findElement(By.xpath("//input[@class='search-form__input-field__search-input']"));
-
-        printXpathFormulas(aramaKutusu);
-
-        driver.quit();
-    }
-
     public static void printXpathFormulas(WebElement element) {
         System.out.println("Metin (getText()): " + element.getText());
         System.out.println("Tag adı: " + element.getTagName());
@@ -64,4 +43,6 @@ public class BulXpath {
             System.out.println("//" + tag + "[@id='" + id + "' and @name='" + name + "']");
         }
     }
+
+
 }
